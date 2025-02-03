@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio de Heitor Prados</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/estilo.css">
+  <script src="assets/js/dados.js" defer></script>
+  <script src="assets/js/actions.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="text-writer">
+            <h1 id="dynamic-text"></h1>
+          </div>
+          <div class="profile-image">
+            <img src="assets/img/unnamed.png" alt="Heitor Prados">
+          </div>
+        </div>
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar Tema"></button>
+    <div class="bubbles-container"></div>
+    </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://github.com/HeitorPrados" target="_blank"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/heitor-prado-9997a0323/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="filter-buttons">
+        <button onclick="filterProjects('all')">
+          <i class="fas fa-star"></i>Todos
+        </button>
+        <button onclick="filterProjects('javascript')">
+          <i class="fab fa-js"></i>JavaScript
+        </button>
+        <button onclick="filterProjects('css')">
+          <i class="fab fa-css3-alt"></i>CSS
+        </button>
+        <button onclick="filterProjects('html')">
+          <i class="fab fa-html5"></i>HTML
+        </button>
+      </div>
+      <div class="projects-grid" id="projects-container">
+      </div>
+    </section>
+    
+    <section id="contato">
+      <h2>Contato</h2>
+      <form onsubmit="validateContactForm(event)">
+        <div class="form-group">
+          <input type="text" id="name" required>
+          <label for="name">Nome</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" required>
+          <label for="email">Email</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="4" required></textarea>
+          <label for="message">Mensagem</label>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="social-icons">
+      <a href="https://github.com/HeitorPrados" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/heitor-prado-9997a0323/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:heitorpradowow@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Heitor Prados. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
