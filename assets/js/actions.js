@@ -4,10 +4,15 @@ function toggleTheme() {
   }
   
   // Filtro de Projetos
-  function filterProjects(category) {
+  function filterProjects(selectedCategory) {
     const projects = document.querySelectorAll('.project-item');
+    
     projects.forEach(project => {
-      project.style.display = (category === 'all' || project.dataset.category === category) ? 'block' : 'none';
+      const categories = project.dataset.categories.split(' ');
+      const shouldShow = selectedCategory === 'all' || 
+                        categories.includes(selectedCategory);
+      
+      project.style.display = shouldShow ? 'block' : 'none';
     });
   }
   
@@ -28,7 +33,9 @@ function toggleTheme() {
     } else {
       alert('Formulário enviado com sucesso!');
       // Aqui você pode adicionar a lógica para enviar os dados do formulário.
+      
     }
+    
   }
 
   const textArray = ["Heitor Prado Santos", "Desenvolvedor de Sistemas", "Criador de Soluções", "Apaixonado por Tecnologia"];
@@ -59,10 +66,11 @@ function toggleTheme() {
 
   document.addEventListener("DOMContentLoaded", typeText);
   
-  function toggleTheme() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-  }
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
   document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark-mode');
@@ -74,35 +82,39 @@ function createBubbles() {
   const container = document.querySelector('.bubbles-container');
   
   function generateBubble() {
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
-    
-    // Configurações aleatórias
-    const size = Math.random() * 30 + 10;
-    const left = Math.random() * 100;
-    const duration = Math.random() * 8 + 6;
-    const delay = Math.random() * 5;
-    const moveX = Math.random() * 0.4 - 0.2; // Movimento horizontal aleatório
-    
-    bubble.style.cssText = `
-      width: ${size}px;
-      height: ${size}px;
-      left: ${left}%;
-      animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
-      --move-x: ${moveX};
-      background: radial-gradient(circle at 30% 30%, 
-        rgba(255,255,255,0.3), 
-        rgba(255,255,255,0.1));
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
-    `;
-    
-    container.appendChild(bubble);
-    
-    // Remove a bolha após a animação
-    bubble.addEventListener('animationend', () => {
-      bubble.remove();
-    });
+
+    if (container.children.length < 100) {
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      
+      // Configurações aleatórias
+      const size = Math.random() * 30 + 10;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 8 + 6;
+      const delay = Math.random() * 5;
+      const moveX = Math.random() * 0.4 - 0.2; // Movimento horizontal aleatório
+      
+      bubble.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${left}%;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        --move-x: ${moveX};
+        background: radial-gradient(circle at 30% 30%, 
+          rgba(255,255,255,0.3), 
+          rgba(255,255,255,0.1));
+        box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      `;
+      
+      container.appendChild(bubble);
+      
+      // Remove a bolha após a animação
+      bubble.addEventListener('animationend', () => {
+        bubble.remove();
+      });
+    }
   }
   
   // Cria bolhas em intervalos aleatórios

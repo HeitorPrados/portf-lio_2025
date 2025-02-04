@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio de Heitor Prados</title>
+  <title>Portfólio do Heitor Prado</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/css/estilo.css">
@@ -21,7 +21,7 @@
           </div>
         </div>
         <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar Tema"></button>
-    <div class="bubbles-container"></div>
+        <div class="bubbles-container"></div>
     </header>
   
   <nav>
@@ -37,21 +37,14 @@
     <section id="projetos">
       <h2>Projetos</h2>
       <div class="filter-buttons">
-        <button onclick="filterProjects('all')">
-          <i class="fas fa-star"></i>Todos
-        </button>
-        <button onclick="filterProjects('javascript')">
-          <i class="fab fa-js"></i>JavaScript
-        </button>
-        <button onclick="filterProjects('css')">
-          <i class="fab fa-css3-alt"></i>CSS
-        </button>
-        <button onclick="filterProjects('html')">
-          <i class="fab fa-html5"></i>HTML
-        </button>
+        <button onclick="filterProjects('all')"><i class="fas fa-star"></i>Todos</button>
+        <button onclick="filterProjects('javascript')"><i class="fab fa-js"></i>JavaScript</button>
+        <button onclick="filterProjects('css')"><i class="fab fa-css3-alt"></i>CSS</button>
+        <button onclick="filterProjects('html')"><i class="fab fa-html5"></i>HTML</button>
+        <button onclick="filterProjects('flask')"><i class="fas fa-flask"></i>Flask</button>
+        <button onclick="filterProjects('python')"><i class="fab fa-python"></i>Python</button>
       </div>
-      <div class="projects-grid" id="projects-container">
-      </div>
+      <div class="projects-grid" id="projects-container"></div>
     </section>
     
     <section id="contato">
